@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Temporal CSS Animation Studio - Time-manipulable CSS animations"
+    />
+    <meta name="author" content="Ashraf Morningstar" />
+    <title>Temporal CSS Animation Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="quantum-container">
+      <header class="quantum-header">
+        <h1 class="quantum-title">Temporal CSS Animation Studio</h1>
+        <p class="quantum-subtitle">
+          Manipulate time itself in your animations
+        </p>
+        <div class="author-credit">
+          <span>Created by <strong>Ashraf Morningstar</strong></span>
+          <a href="https://github.com/AshrafMorningstar" target="_blank"
+            >GitHub</a
+          >
+        </div>
+      </header>
+
+      <main class="quantum-main">
+        <section class="timeline-control">
+          <h2>⏰ Temporal Controls</h2>
+          <div class="time-scrubber">
+            <input
+              type="range"
+              id="timeScrubber"
+              min="0"
+              max="100"
+              value="0"
+              class="scrubber-input"
+            />
+            <div class="time-display">
+              <span id="currentTime">0.00s</span> /
+              <span id="totalTime">5.00s</span>
+            </div>
+          </div>
+          <div class="playback-controls">
+            <button id="playBackward" class="control-btn">◀ Backward</button>
+            <button id="playPause" class="control-btn">▶ Play</button>
+            <button id="playForward" class="control-btn">Forward ▶</button>
+            <button id="quantumMode" class="control-btn">🌊 Quantum</button>
+          </div>
+          <div class="time-dilation">
+            <label>Time Dilation:</label>
+            <input
+              type="range"
+              id="timeDilation"
+              min="0.1"
+              max="10"
+              step="0.1"
+              value="1"
+            />
+            <span id="dilationValue">1.0x</span>
+          </div>
+        </section>
+
+        <section class="animation-canvas">
+          <h2>🎬 Animation Preview</h2>
+          <div class="preview-stage" id="previewStage">
+            <div class="animated-element" id="animatedElement"></div>
+          </div>
+          <div class="temporal-branches" id="temporalBranches"></div>
+        </section>
+
+        <section class="keyframe-editor">
+          <h2>🎯 Keyframe Editor</h2>
+          <div class="keyframe-timeline" id="keyframeTimeline">
+            <div class="keyframe" data-time="0">0%</div>
+            <div class="keyframe" data-time="50">50%</div>
+            <div class="keyframe" data-time="100">100%</div>
+          </div>
+          <button id="addKeyframe" class="quantum-button">Add Keyframe</button>
+          <button id="createBranch" class="quantum-button">
+            Create Temporal Branch
+          </button>
+        </section>
+
+        <section class="css-output">
+          <h2>📝 Generated CSS</h2>
+          <textarea id="cssOutput" readonly></textarea>
+          <button id="copyCss" class="control-btn">Copy CSS</button>
+          <button id="exportAnimation" class="control-btn">
+            Export Animation
+          </button>
+        </section>
+      </main>
+
+      <footer class="quantum-footer">
+        <p>
+          &copy; 2024 Ashraf Morningstar |
+          <a href="https://github.com/AshrafMorningstar" target="_blank"
+            >GitHub</a
+          >
+        </p>
+        <p class="quantum-note">
+          Quantum Web Development Project #3 - Temporal CSS Animation Studio
+        </p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

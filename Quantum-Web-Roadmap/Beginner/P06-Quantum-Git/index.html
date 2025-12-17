@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      ⚛️ QUANTUM WEB DEVELOPMENT ROADMAP
+      Created by Ashraf Morningstar (https://github.com/AshrafMorningstar) 
+    -->
+    <meta name="author" content="Ashraf Morningstar">
+    <meta name="publisher" content="Ashraf Morningstar">
+    <meta name="copyright" content="Ashraf Morningstar">
+    <meta name="description" content="Explore 18 revolutionary quantum-inspired web projects by Ashraf Morningstar. From neural color generators to distributed quantum simulations. #QuantumWeb #WebDev">
+    <meta name="keywords" content="Quantum Web Development, AI Web Projects, Future Web Tech, 3D Web Design, Glassmorphism, WebAssembly, Ashraf Morningstar Portfolio">
+    
+    <!-- Open Graph / Viral Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quantum Web Roadmap | Ashraf Morningstar">
+    <meta property="og:description" content="Experience the future of web development. 18 revolutionary projects by Ashraf Morningstar.">
+    <meta property="og:image" content="https://opengraph.githubassets.com/1/AshrafMorningstar/Quantum-Web-Roadmap">
+    <meta property="og:url" content="https://github.com/AshrafMorningstar">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantum Web Roadmap | Ashraf Morningstar">
+    <meta name="twitter:description" content="18 Revolutionary Web Projects. Zero Setup. Pure Magic.">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Git Visualizer | Ashraf Morningstar</title>
+    <meta name="author" content="Ashraf Morningstar" />
+    <link rel="stylesheet" href="../../assets/css/quantum-core.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: var(--space-xl);
+      }
+      .viz-layout {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: var(--space-xl);
+        height: 80vh;
+      }
+      .graph-container {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+      }
+      #git-graph {
+        width: 100%;
+        height: 100%;
+      }
+      .controls-panel {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        background: rgba(255, 255, 255, 0.02);
+        padding: var(--space-lg);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+      }
+      .commit-info {
+        margin-top: auto;
+        padding: var(--space-md);
+        background: rgba(0, 255, 255, 0.05);
+        border-radius: 12px;
+        border-left: 3px solid var(--quantum-secondary);
+      }
+      .node circle {
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .node:hover circle {
+        filter: drop-shadow(0 0 8px var(--quantum-primary));
+        r: 8;
+      }
+      .link {
+        stroke-opacity: 0.6;
+        transition: stroke-width 0.3s;
+      }
+      .branch-label {
+        font-family: var(--font-display);
+        font-size: 10px;
+        fill: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="header"
+        style="text-align: center; margin-bottom: var(--space-lg)"
+      >
+        <h1
+          class="title"
+          style="
+            font-family: var(--font-display);
+            background: linear-gradient(
+              135deg,
+              var(--quantum-primary),
+              var(--quantum-secondary)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          "
+        >
+          ⚛️ Quantum Git Visualizer
+        </h1>
+        <p style="color: var(--text-secondary)">
+          Repositories as probability fields
+        </p>
+      </div>
+
+      <div class="viz-layout">
+        <div class="graph-container holo-card">
+          <svg id="git-graph"></svg>
+        </div>
+
+        <div class="controls-panel">
+          <h3 style="font-family: var(--font-display)">Quantum Controls</h3>
+
+          <button class="quantum-btn" id="add-commit">➕ Quantum Commit</button>
+          <button class="quantum-btn" id="branch-out">
+            🌿 Create Superposition (Branch)
+          </button>
+          <button class="quantum-btn" id="merge-branch">
+            ⚡ Collapse State (Merge)
+          </button>
+          <button class="quantum-btn" id="visualize-wave">
+            🌊 Probability Wave Mode
+          </button>
+
+          <div class="control-group" style="margin-top: var(--space-md)">
+            <label
+              style="
+                display: block;
+                margin-bottom: 5px;
+                color: var(--text-secondary);
+              "
+              >Entanglement Force</label
+            >
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              id="force-control"
+              style="width: 100%"
+            />
+          </div>
+
+          <div class="commit-info" id="commit-info">
+            <strong>Selected Node:</strong>
+            <span style="color: var(--quantum-secondary)">None</span><br />
+            <small>Hover over particles to observe spin state</small>
+          </div>
+
+          <div style="margin-top: auto; text-align: center">
+            <a
+              href="../../index.html"
+              class="quantum-btn"
+              style="width: 100%; display: block; text-align: center"
+              >← Exit to Roadmap</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../assets/js/quantum-engine.js"></script>
+    <script>
+      /**
+       * Quantum Git Visualizer
+       * Uses D3.js for force-directed quantum graph
+       */
+
+      const svg = d3.select("#git-graph");
+      const width = document.querySelector(".graph-container").clientWidth;
+      const height = document.querySelector(".graph-container").clientHeight;
+
+      let nodes = [{ id: "init", group: 1, label: "Initial Commit", time: 0 }];
+      let links = [];
+      let branches = ["main"];
+      let currentBranch = "main";
+      let commitCount = 0;
+
+      const simulation = d3
+        .forceSimulation(nodes)
+        .force(
+          "link",
+          d3
+            .forceLink(links)
+            .id((d) => d.id)
+            .distance(50)
+        )
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("collide", d3.forceCollide(20));
+
+      // Render
+      const g = svg.append("g");
+
+      // Zoom support
+      svg.call(
+        d3.zoom().on("zoom", (event) => {
+          g.attr("transform", event.transform);
+        })
+      );
+
+      function updateGraph() {
+        // Links
+        const link = g
+          .selectAll(".link")
+          .data(links)
+          .join("line")
+          .attr("class", "link")
+          .attr("stroke", "#444")
+          .attr("stroke-width", 2);
+
+        // Nodes
+        const node = g
+          .selectAll(".node")
+          .data(nodes)
+          .join("g")
+          .attr("class", "node")
+          .call(
+            d3
+              .drag()
+              .on("start", dragstarted)
+              .on("drag", dragged)
+              .on("end", dragended)
+          );
+
+        node.selectAll("circle").remove();
+        node
+          .append("circle")
+          .attr("r", 6)
+          .attr("fill", (d) =>
+            d.group === 1
+              ? "var(--quantum-primary)"
+              : "var(--quantum-secondary)"
+          )
+          .attr("stroke", "#fff")
+          .attr("stroke-width", 1.5);
+
+        // Labels
+        node.selectAll("text").remove();
+        node
+          .append("text")
+          .text((d) => d.id.substring(0, 6))
+          .attr("x", 10)
+          .attr("y", 3)
+          .style("fill", "#ccc")
+          .style("font-size", "10px")
+          .style("pointer-events", "none");
+
+        // Interactions
+        node.on("mouseover", (event, d) => {
+          document.getElementById("commit-info").innerHTML = `
+                    <strong>Hash:</strong> <span style="color: var(--quantum-primary);">${
+                      d.id
+                    }</span><br>
+                    <strong>Branch:</strong> ${d.branch || "main"}<br>
+                    <strong>State:</strong> ${
+                      Math.random() > 0.5 ? "|0⟩" : "|1⟩"
+                    } (Verified)
+                `;
+        });
+
+        simulation.nodes(nodes);
+        simulation.force("link").links(links);
+        simulation.alpha(1).restart();
+      }
+
+      // Mechanics
+      function addCommit() {
+        const id = QuantumUtils.generateQuantumId();
+        const parent = nodes[nodes.length - 1]; // Simply chain to last for now
+
+        const newNode = {
+          id: id,
+          group: currentBranch === "main" ? 1 : 2,
+          branch: currentBranch,
+          time: Date.now(),
+        };
+
+        nodes.push(newNode);
+        nodes.forEach((n) => {
+          if (n.branch === currentBranch && n !== newNode && n === parent) {
+            // Try to find the real tip of current branch
+          }
+        });
+
+        // Link to the last node of the same branch
+        const branchNodes = nodes.filter(
+          (n) => n.branch === currentBranch && n.id !== id
+        );
+        if (branchNodes.length > 0) {
+          const lastNode = branchNodes[branchNodes.length - 1];
+          links.push({ source: lastNode.id, target: id });
+        } else if (nodes.length > 1) {
+          // First commit of new branch links to branching point (random for demo simplicity)
+          links.push({ source: nodes[nodes.length - 2].id, target: id });
+        }
+
+        updateGraph();
+      }
+
+      function createBranch() {
+        const name = `feature-${Math.floor(Math.random() * 100)}`;
+        branches.push(name);
+        currentBranch = name;
+        document.getElementById(
+          "commit-info"
+        ).innerHTML += `<br><em>Switched to ${name}</em>`;
+      }
+
+      function mergeBranch() {
+        if (currentBranch === "main") return;
+
+        // Create merge commit
+        const id = "MERGE-" + Math.floor(Math.random() * 1000);
+        const newNode = { id: id, group: 3, branch: "main" };
+        nodes.push(newNode);
+
+        // Link from current tip
+        const branchTips = nodes.filter((n) => n.branch === currentBranch);
+        const mainTips = nodes.filter((n) => n.branch === "main");
+
+        if (branchTips.length)
+          links.push({
+            source: branchTips[branchTips.length - 1].id,
+            target: id,
+          });
+        if (mainTips.length)
+          links.push({ source: mainTips[mainTips.length - 1].id, target: id });
+
+        currentBranch = "main";
+        updateGraph();
+      }
+
+      // Simulation Loop
+      simulation.on("tick", () => {
+        g.selectAll(".link")
+          .attr("x1", (d) => d.source.x)
+          .attr("y1", (d) => d.source.y)
+          .attr("x2", (d) => d.target.x)
+          .attr("y2", (d) => d.target.y);
+
+        g.selectAll(".node").attr(
+          "transform",
+          (d) => `translate(${d.x},${d.y})`
+        );
+      });
+
+      // Drag functions
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      // GUI Listeners
+      document
+        .getElementById("add-commit")
+        .addEventListener("click", addCommit);
+      document
+        .getElementById("branch-out")
+        .addEventListener("click", createBranch);
+      document
+        .getElementById("merge-branch")
+        .addEventListener("click", mergeBranch);
+
+      document
+        .getElementById("force-control")
+        .addEventListener("input", (e) => {
+          const strength = -1 * e.target.value * 10;
+          simulation.force("charge", d3.forceManyBody().strength(strength));
+          simulation.alpha(1).restart();
+        });
+
+      // Initialize with a few nodes
+      updateGraph();
+      setTimeout(addCommit, 500);
+      setTimeout(addCommit, 1000);
+    </script>
+  </body>
+</html>

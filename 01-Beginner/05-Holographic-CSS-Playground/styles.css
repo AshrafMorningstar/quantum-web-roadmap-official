@@ -1,0 +1,128 @@
+/** Holographic CSS - Styles */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --holo-cyan: #00f3ff;
+    --holo-blue: #0051ff;
+    --holo-bg: #000;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: var(--holo-bg);
+    color: var(--holo-cyan);
+    font-family: 'Share Tech Mono', monospace;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.holo-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#hologramStage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.interface-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    background: radial-gradient(circle at center, transparent 60%, rgba(0,20,40,0.8));
+}
+
+header {
+    pointer-events: auto;
+    text-shadow: 0 0 10px var(--holo-cyan);
+}
+
+h1 { font-size: 2.5rem; letter-spacing: 2px; text-transform: uppercase; }
+.author-tag { margin-top: 10px; opacity: 0.7; font-size: 0.8rem; }
+
+.controls-panel {
+    pointer-events: auto;
+    width: 350px;
+    background: rgba(0, 10, 20, 0.8);
+    border: 1px solid var(--holo-blue);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 81, 255, 0.2);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.css-editor h3 { margin-bottom: 10px; color: var(--holo-blue); }
+textarea {
+    width: 100%;
+    height: 150px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--holo-blue);
+    color: var(--holo-cyan);
+    padding: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+}
+textarea:focus { outline: none; border-color: var(--holo-cyan); box-shadow: 0 0 10px var(--holo-cyan); }
+
+.sliders label { display: block; margin-bottom: 5px; font-size: 0.8rem; }
+input[type=range] {
+    width: 100%;
+    margin-bottom: 15px;
+    accent-color: var(--holo-cyan);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--holo-cyan);
+    color: var(--holo-cyan);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 15px var(--holo-cyan);
+    text-shadow: 0 0 5px white;
+}
+
+/* Scanline effect */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 10;
+}

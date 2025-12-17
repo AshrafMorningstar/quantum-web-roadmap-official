@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum Git Visualization Platform - Visualize code history as probability fields">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>Quantum Git Visualization Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- D3.js for Graph Visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="qgit-container">
+        <nav class="sidebar">
+            <div class="brand">
+                <span class="logo">Q-GIT</span>
+                <span class="version">v0.9.beta</span>
+            </div>
+            
+            <div class="repo-selector">
+                <label>Active Repository</label>
+                <select id="repoSelect">
+                    <option value="main">ashraf/quantum-web</option>
+                    <option value="lib">ashraf/temporal-lib</option>
+                </select>
+            </div>
+
+            <div class="branch-list">
+                <h3>Temporal Branches</h3>
+                <ul id="branchList">
+                    <li class="active" data-branch="main"><span class="dot"></span> main (Stable)</li>
+                    <li data-branch="feature/quantum-ui"><span class="dot" style="background:#00f3ff"></span> feature/quantum-ui</li>
+                    <li data-branch="bugfix/entanglement"><span class="dot" style="background:#ff00aa"></span> bugfix/entanglement</li>
+                </ul>
+            </div>
+
+            <div class="controls">
+                <button id="addCommitBtn">➕ Commit Change</button>
+                <button id="mergeBtn">⑂ Quantum Merge</button>
+                <button id="historyBtn">📜 Time Travel</button>
+            </div>
+        </nav>
+
+        <main class="visualizer">
+            <header>
+                <h1>Repository Probability Field</h1>
+                <div class="stats">
+                    <span>Commits: <b id="commitCount">42</b></span>
+                    <span>Entropy: <b>Low</b></span>
+                    <span>Head: <b>8f3a2c</b></span>
+                </div>
+            </header>
+            
+            <div id="graph-container"></div>
+            
+            <div class="commit-detail" id="commitDetail">
+                <h3>Commit Quantum State</h3>
+                <p class="hash">Hash: <span id="detailHash">---</span></p>
+                <p class="msg">Message: <span id="detailMsg">Select a node...</span></p>
+                <div class="diff-view">
+                    <!-- Diff content would go here -->
+                    <div class="diff-line add">+ function measure() {</div>
+                    <div class="diff-line add">+   return this.state;</div>
+                    <div class="diff-line add">+ }</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

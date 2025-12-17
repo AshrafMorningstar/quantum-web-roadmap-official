@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum Form State Manager - Forms with quantum superposition validation">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>Quantum Form State Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quantum-container">
+        <header class="quantum-header">
+            <h1 class="quantum-title">Quantum Form Manager</h1>
+            <p class="quantum-subtitle">Data entry in superposition</p>
+            <div class="author-credit">
+                <span>Created by <strong>Ashraf Morningstar</strong></span>
+                <a href="https://github.com/AshrafMorningstar" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <main class="quantum-main">
+            <section class="form-container">
+                <h2>⚛️ Quantum Input Fields</h2>
+                <div class="quantum-form" id="quantumForm">
+                    <!-- Quantum Fields will be injected here -->
+                    <div class="quantum-field" data-state="superposition">
+                        <label>User Identity (Email/Username)</label>
+                        <div class="input-wrapper">
+                            <input type="text" class="quantum-input" id="identityInput" placeholder="Exists in potential states...">
+                            <div class="probability-cloud"></div>
+                        </div>
+                        <div class="state-indicator">State: <span class="state-value">Superposition</span></div>
+                    </div>
+
+                    <div class="quantum-field" data-state="superposition">
+                        <label>Secure Key (Password)</label>
+                        <div class="input-wrapper">
+                            <input type="password" class="quantum-input" id="keyInput" placeholder="Wave function undefined...">
+                            <div class="probability-cloud"></div>
+                        </div>
+                        <div class="state-indicator">State: <span class="state-value">Superposition</span></div>
+                    </div>
+                </div>
+                
+                <div class="form-controls">
+                    <button id="observeBtn" class="quantum-button">👁️ Observe (Validate)</button>
+                    <button id="entangleBtn" class="quantum-button">🔗 Entangle Fields</button>
+                    <button id="resetBtn" class="control-btn">↺ Reset Wave Function</button>
+                </div>
+            </section>
+
+            <section class="visualization-panel">
+                <h2>🌊 Probability Wave Visualization</h2>
+                <canvas id="waveCanvas"></canvas>
+                <div class="metrics">
+                    <div class="metric">
+                        <span class="label">Coherence:</span>
+                        <span class="value" id="coherenceVal">100%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Entropy:</span>
+                        <span class="value" id="entropyVal">Low</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="log-panel">
+                <h2>📝 Quantum Logs</h2>
+                <div class="console-log" id="consoleLog">
+                    <div class="log-entry">System initialized. Fields in superposition.</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="quantum-footer">
+            <p>&copy; 2024 Ashraf Morningstar | <a href="https://github.com/AshrafMorningstar" target="_blank">GitHub</a></p>
+            <p class="quantum-note">Quantum Web Development Project #4 - Quantum Form State Manager</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

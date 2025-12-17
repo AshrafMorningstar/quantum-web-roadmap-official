@@ -1,0 +1,132 @@
+/** Quantum CI/CD Styles | Author: Ashraf Morningstar */
+:root {
+    --bg-dark: #1a1b26;
+    --pipeline-bg: #24283b;
+    --success: #9ece6a;
+    --fail: #f7768e;
+    --running: #7dcfff;
+    --pending: #565f89;
+    --text: #c0caf5;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pipeline-dashboard {
+    width: 95%; /* Use percentage width to fit screen */
+    max-width: 1200px;
+    background: var(--pipeline-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--pending);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+h1 { margin: 0; font-size: 1.5rem; }
+.build-id { color: var(--running); font-size: 0.8em; margin-left: 10px; }
+
+button.primary {
+    background: var(--running);
+    color: var(--bg-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button.primary:hover { opacity: 0.9; transform: translateY(-2px); }
+
+.multiverse-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.universe-track {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.universe-label { font-size: 0.9rem; color: var(--text); opacity: 0.8; }
+
+.pipeline-steps {
+    display: flex;
+    gap: 20px;
+}
+
+.step {
+    flex: 1;
+    background: var(--pending);
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.8rem;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Connecting lines */
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background: var(--pending);
+    z-index: 0;
+}
+
+.step.running { background: var(--running); color: var(--bg-dark); animation: pulse 1s infinite; }
+.step.success { background: var(--success); color: var(--bg-dark); }
+.step.fail { background: var(--fail); color: white; }
+
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+
+.logs-terminal {
+    background: #101014;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #1f1f24;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    color: var(--text);
+    border-bottom: 1px solid #333;
+}
+
+.terminal-body {
+    height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+}
+
+.log-line { margin-bottom: 5px; }
+.log-error { color: var(--fail); }
+.log-success { color: var(--success); }

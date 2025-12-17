@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+      ⚛️ QUANTUM WEB DEVELOPMENT ROADMAP
+      Created by Ashraf Morningstar (https://github.com/AshrafMorningstar) 
+    -->
+    <meta name="author" content="Ashraf Morningstar">
+    <meta name="publisher" content="Ashraf Morningstar">
+    <meta name="copyright" content="Ashraf Morningstar">
+    <meta name="description" content="Explore 18 revolutionary quantum-inspired web projects by Ashraf Morningstar. From neural color generators to distributed quantum simulations. #QuantumWeb #WebDev">
+    <meta name="keywords" content="Quantum Web Development, AI Web Projects, Future Web Tech, 3D Web Design, Glassmorphism, WebAssembly, Ashraf Morningstar Portfolio">
+    
+    <!-- Open Graph / Viral Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quantum Web Roadmap | Ashraf Morningstar">
+    <meta property="og:description" content="Experience the future of web development. 18 revolutionary projects by Ashraf Morningstar.">
+    <meta property="og:image" content="https://opengraph.githubassets.com/1/AshrafMorningstar/Quantum-Web-Roadmap">
+    <meta property="og:url" content="https://github.com/AshrafMorningstar">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantum Web Roadmap | Ashraf Morningstar">
+    <meta name="twitter:description" content="18 Revolutionary Web Projects. Zero Setup. Pure Magic.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Assembling Portfolio Architecture | Ashraf Morningstar</title>
+    <meta name="author" content="Ashraf Morningstar">
+    <link rel="stylesheet" href="../../assets/css/quantum-core.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, var(--quantum-primary), var(--quantum-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .github-input {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .github-input input {
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--quantum-primary);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            min-width: 300px;
+            font-family: var(--font-body);
+        }
+
+        .github-input input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xxl);
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .portfolio-grid.assembled {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: var(--space-lg);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--quantum-primary), var(--quantum-secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--quantum-secondary);
+            box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+        }
+
+        .project-language {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-sm);
+            background: rgba(138, 43, 226, 0.2);
+            border: 1px solid var(--quantum-primary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+            color: var(--quantum-secondary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .project-stats {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
+
+        .skill-radar {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: var(--space-xl);
+            margin-top: var(--space-xxl);
+        }
+
+        .quantum-state-indicator {
+            text-align: center;
+            padding: var(--space-lg);
+            margin-top: var(--space-xl);
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 12px;
+            border: 1px solid var(--quantum-primary);
+        }
+
+        .loading-animation {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(138, 43, 226, 0.3);
+            border-top-color: var(--quantum-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .layout-options {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .layout-btn {
+            padding: var(--space-sm) var(--space-lg);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--quantum-primary);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-family: var(--font-display);
+            transition: all 0.3s;
+        }
+
+        .layout-btn:hover {
+            background: rgba(138, 43, 226, 0.3);
+            transform: scale(1.05);
+        }
+
+        .layout-btn.active {
+            background: var(--quantum-primary);
+            box-shadow: 0 0 20px var(--quantum-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">⚛️ Self-Assembling Portfolio Architecture</h1>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                Your GitHub projects quantum-analyzed and auto-designed
+            </p>
+            <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: var(--space-sm);">
+                By <a href="https://github.com/AshrafMorningstar" style="color: var(--quantum-secondary);">Ashraf Morningstar</a>
+            </p>
+
+            <div class="github-input">
+                <input type="text" id="github-username" placeholder="Enter GitHub username..." value="torvalds">
+                <button class="quantum-btn" id="analyze-btn">🔬 Analyze & Assemble</button>
+            </div>
+        </div>
+
+        <div class="quantum-state-indicator" id="state-indicator" style="display: none;">
+            <div class="loading-animation"></div>
+            <p style="margin-top: var(--space-md); font-family: var(--font-display);">
+                Quantum analyzing repositories...
+            </p>
+        </div>
+
+        <div class="layout-options" id="layout-options" style="display: none;">
+            <button class="layout-btn active" data-layout="auto">🌊 Quantum Auto</button>
+            <button class="layout-btn" data-layout="grid">📐 Grid Layout</button>
+            <button class="layout-btn" data-layout="masonry">🧱 Masonry</button>
+            <button class="layout-btn" data-layout="timeline">⏱️ Timeline</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid"></div>
+
+        <div class="holo-card skill-radar" id="skill-radar-container" style="display: none;">
+            <h3 style="margin-bottom: var(--space-lg); font-family: var(--font-display); text-align: center;">
+                📊 Skill Quantum Field
+            </h3>
+            <canvas id="skill-radar"></canvas>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-xxl);">
+            <a href="../../index.html" class="quantum-btn">← Back to Roadmap</a>
+        </div>
+    </div>
+
+    <script src="../../assets/js/quantum-engine.js"></script>
+    <script>
+        /**
+         * Self-Assembling Portfolio Architecture
+         * Author: Ashraf Morningstar
+         * GitHub: https://github.com/AshrafMorningstar
+         */
+
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const usernameInput = document.getElementById('github-username');
+        const stateIndicator = document.getElementById('state-indicator');
+        const portfolioGrid = document.getElementById('portfolio-grid');
+        const layoutOptions = document.getElementById('layout-options');
+        const skillRadarContainer = document.getElementById('skill-radar-container');
+
+        let currentLayout = 'auto';
+        let projectsData = [];
+        let skillsData = {};
+
+        analyzeBtn.addEventListener('click', analyzeGitHub);
+
+        async function analyzeGitHub() {
+            const username = usernameInput.value.trim();
+            if (!username) {
+                alert('Please enter a GitHub username');
+                return;
+            }
+
+            stateIndicator.style.display = 'block';
+            portfolioGrid.classList.remove('assembled');
+            portfolioGrid.innerHTML = '';
+            layoutOptions.style.display = 'none';
+            skillRadarContainer.style.display = 'none';
+
+            try {
+                // Fetch repositories
+                const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=12`);
+                if (!response.ok) throw new Error('User not found');
+                
+                const repos = await response.json();
+                projectsData = repos;
+
+                // Analyze skills
+                analyzeSkills(repos);
+
+                // Simulate quantum analysis delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                // Assemble portfolio
+                assemblePortfolio(repos);
+
+                stateIndicator.style.display = 'none';
+                layoutOptions.style.display = 'flex';
+                skillRadarContainer.style.display = 'block';
+
+                // Render skill radar
+                renderSkillRadar();
+
+            } catch (error) {
+                stateIndicator.innerHTML = `
+                    <p style="color: #ff6b6b; font-family: var(--font-display);">
+                        ⚠️ Error: ${error.message}
+                    </p>
+                `;
+                setTimeout(() => {
+                    stateIndicator.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function analyzeSkills(repos) {
+            skillsData = {};
+            repos.forEach(repo => {
+                if (repo.language) {
+                    skillsData[repo.language] = (skillsData[repo.language] || 0) + 1;
+                }
+            });
+        }
+
+        function assemblePortfolio(repos) {
+            portfolioGrid.innerHTML = repos.map((repo, index) => `
+                <div class="project-card quantum-state" data-state="superposition" style="animation-delay: ${index * 0.1}s;">
+                    ${repo.language ? `<span class="project-language">${repo.language}</span>` : ''}
+                    <h3 class="project-title">${repo.name}</h3>
+                    <p class="project-description">
+                        ${repo.description || 'No description available'}
+                    </p>
+                    <div class="project-stats">
+                        <span>⭐ ${repo.stargazers_count}</span>
+                        <span>🔱 ${repo.forks_count}</span>
+                        <span>👁️ ${repo.watchers_count}</span>
+                    </div>
+                    <a href="${repo.html_url}" target="_blank" class="quantum-btn" style="margin-top: var(--space-md); display: inline-block;">
+                        View Repository →
+                    </a>
+                </div>
+            `).join('');
+
+            // Trigger collapse animation
+            setTimeout(() => {
+                portfolioGrid.classList.add('assembled');
+                document.querySelectorAll('.project-card').forEach((card, i) => {
+                    setTimeout(() => {
+                        QuantumUtils.collapseState(card);
+                    }, i * 100);
+                });
+            }, 100);
+
+            applyLayout(currentLayout);
+        }
+
+        function renderSkillRadar() {
+            const ctx = document.getElementById('skill-radar').getContext('2d');
+            const skills = Object.keys(skillsData).slice(0, 8);
+            const values = skills.map(skill => skillsData[skill]);
+
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: skills,
+                    datasets: [{
+                        label: 'Skill Distribution',
+                        data: values,
+                        backgroundColor: 'rgba(138, 43, 226, 0.2)',
+                        borderColor: '#8a2be2',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#00ffff',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#00ffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            pointLabels: {
+                                color: '#ffffff',
+                                font: {
+                                    size: 14,
+                                    family: 'Inter'
+                                }
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.5)',
+                                backdropColor: 'transparent'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#ffffff',
+                                font: {
+                                    family: 'Orbitron'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function applyLayout(layout) {
+            currentLayout = layout;
+            
+            switch(layout) {
+                case 'grid':
+                    portfolioGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+                    break;
+                case 'masonry':
+                    portfolioGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(250px, 1fr))';
+                    portfolioGrid.style.gridAutoRows = 'auto';
+                    break;
+                case 'timeline':
+                    portfolioGrid.style.gridTemplateColumns = '1fr';
+                    break;
+                case 'auto':
+                default:
+                    // Quantum auto-layout based on skill distribution
+                    const skillCount = Object.keys(skillsData).length;
+                    const cols = skillCount > 5 ? 4 : skillCount > 3 ? 3 : 2;
+                    portfolioGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${300}px, 1fr))`;
+                    break;
+            }
+        }
+
+        // Layout switcher
+        document.querySelectorAll('.layout-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                applyLayout(btn.dataset.layout);
+            });
+        });
+
+        // Auto-analyze on Enter key
+        usernameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') analyzeGitHub();
+        });
+    </script>
+</body>
+</html>

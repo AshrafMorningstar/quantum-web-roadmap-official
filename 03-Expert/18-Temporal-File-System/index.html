@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Temporal Versioning File System">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>TVFS Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="tvfs-container">
+        <header>
+            <div class="logo">TVFS://ROOT</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search across time...">
+            </div>
+        </header>
+
+        <div class="main-split">
+            <!-- File Tree -->
+            <nav class="file-tree">
+                <ul>
+                    <li class="folder open">
+                        <span>📁 /projects</span>
+                        <ul>
+                            <li class="file active" data-id="f1">📄 quantum_core.js</li>
+                            <li class="file" data-id="f2">📄 styles.css</li>
+                            <li class="file" data-id="f3">📄 readme.md</li>
+                        </ul>
+                    </li>
+                    <li class="folder"><span>📁 /assets</span></li>
+                    <li class="folder"><span>📁 /logs</span></li>
+                </ul>
+            </nav>
+
+            <!-- File Viewer -->
+            <main class="file-viewer">
+                <div class="viewer-header">
+                    <span id="fileName">quantum_core.js</span>
+                    <span class="file-meta" id="fileMeta">Last modified: Today</span>
+                </div>
+                
+                <div class="code-editor" id="codeEditor">
+                    <!-- Content injected by JS -->
+                </div>
+
+                <!-- Temporal Control Deck -->
+                <div class="temporal-deck">
+                    <div class="deck-header">TEMPORAL VERSION CONTROL</div>
+                    <div class="timeline-visual">
+                        <div class="timeline-track"></div>
+                        <div class="version-node" style="left: 10%" data-ver="v1">v1.0</div>
+                        <div class="version-node" style="left: 40%" data-ver="v1.5">v1.5</div>
+                        <div class="version-node" style="left: 80%" data-ver="v2">v2.0</div>
+                        <input type="range" class="time-scrubber" min="0" max="100" value="100" id="timeScrubber">
+                    </div>
+                    <div class="diff-stats">
+                        <span class="added">+42 lines</span>
+                        <span class="removed">-12 lines</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

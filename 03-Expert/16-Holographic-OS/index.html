@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Holographic Operating System">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>HoloOS v1.0</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="desktop-environment">
+        <!-- Floating Windows will be injected here -->
+        <div class="window" id="win-1" style="top: 100px; left: 100px;">
+            <div class="win-header">System Metrics</div>
+            <div class="win-content">
+                <div class="graph-mock"></div>
+                <p>CPU: 12% | MEM: 4GB</p>
+            </div>
+        </div>
+
+        <div class="windowglass" id="win-2" style="top: 200px; left: 400px; width: 400px;">
+            <div class="glass-header">
+                <span>HoloNodes</span>
+                <span class="close-btn">×</span>
+            </div>
+            <div class="glass-content">
+                Initializing spatial lattice...
+                <br>
+                > Node 4 connected
+                <br>
+                > Node 8 connected
+            </div>
+        </div>
+
+        <nav class="dock">
+            <div class="icon" title="Finder">▣</div>
+            <div class="icon" title="Terminal">_</div>
+            <div class="icon" title="Browser">🌐</div>
+            <div class="icon" title="HoloSettings">⚙</div>
+        </nav>
+        
+        <div class="cursor-trail"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

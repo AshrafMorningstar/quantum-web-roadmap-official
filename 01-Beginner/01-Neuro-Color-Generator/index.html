@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Neuro-Synaptic Color Experience Generator - Biometric-driven color palette creation"
+    />
+    <meta name="author" content="Ashraf Morningstar" />
+    <title>Neuro-Synaptic Color Experience Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="quantum-container">
+      <!-- Header -->
+      <header class="quantum-header">
+        <h1 class="quantum-title">Neuro-Synaptic Color Experience</h1>
+        <p class="quantum-subtitle">
+          Colors that respond to your neural patterns
+        </p>
+        <div class="author-credit">
+          <span>Created by <strong>Ashraf Morningstar</strong></span>
+          <a
+            href="https://github.com/AshrafMorningstar"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="quantum-main">
+        <!-- Biometric Status Panel -->
+        <section class="biometric-panel">
+          <h2>🧠 Biometric Input</h2>
+          <div class="biometric-status">
+            <div class="status-item">
+              <span class="status-label">Attention Level:</span>
+              <div class="status-bar">
+                <div
+                  class="status-fill"
+                  id="attentionBar"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <span class="status-value" id="attentionValue">0%</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">Typing Rhythm:</span>
+              <div class="status-bar">
+                <div class="status-fill" id="rhythmBar" style="width: 0%"></div>
+              </div>
+              <span class="status-value" id="rhythmValue">0%</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">Quantum State:</span>
+              <div class="quantum-state-indicator" id="quantumState">
+                <div class="quantum-particle"></div>
+              </div>
+              <span class="status-value" id="quantumValue"
+                >Initializing...</span
+              >
+            </div>
+          </div>
+          <button class="quantum-button" id="startBiometric">
+            Start Neural Capture
+          </button>
+        </section>
+
+        <!-- Color Canvas -->
+        <section class="color-canvas">
+          <h2>🎨 Quantum Color Field</h2>
+          <div class="canvas-container">
+            <canvas id="quantumCanvas"></canvas>
+            <div class="canvas-overlay">
+              <div class="color-particles" id="colorParticles"></div>
+            </div>
+          </div>
+          <div class="canvas-controls">
+            <button class="control-btn" id="generateBtn">
+              Generate Quantum Colors
+            </button>
+            <button class="control-btn" id="saveBtn">Save Color Memory</button>
+            <button class="control-btn" id="resetBtn">Reset Field</button>
+          </div>
+        </section>
+
+        <!-- Color Palette Display -->
+        <section class="palette-display">
+          <h2>🌈 Generated Palette</h2>
+          <div class="palette-grid" id="paletteGrid">
+            <!-- Color swatches will be generated here -->
+          </div>
+          <div class="palette-info">
+            <p>
+              Your unique neuro-pattern signature:
+              <span id="neuroSignature">Awaiting input...</span>
+            </p>
+          </div>
+        </section>
+
+        <!-- Color Memory Bank -->
+        <section class="memory-bank">
+          <h2>💾 Color Memories</h2>
+          <div class="memory-grid" id="memoryGrid">
+            <div class="memory-placeholder">
+              <p>
+                No color memories yet. Generate and save your first quantum
+                palette!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Input Area -->
+        <section class="interaction-area">
+          <h2>⌨️ Neural Input Capture</h2>
+          <textarea
+            id="neuralInput"
+            placeholder="Type anything here to capture your typing rhythm and generate personalized colors...&#10;&#10;The system analyzes your keystroke patterns, timing, and rhythm to create unique color experiences that match your neural state."
+            rows="6"
+          ></textarea>
+          <div class="interaction-stats">
+            <span>Keystrokes: <strong id="keystrokeCount">0</strong></span>
+            <span>Rhythm Score: <strong id="rhythmScore">0.0</strong></span>
+            <span
+              >Pattern Complexity:
+              <strong id="patternComplexity">Low</strong></span
+            >
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="quantum-footer">
+        <p>
+          &copy; 2024 Ashraf Morningstar |
+          <a href="https://github.com/AshrafMorningstar" target="_blank"
+            >GitHub</a
+          >
+        </p>
+        <p class="quantum-note">
+          Quantum Web Development Project #1 - Neuro-Synaptic Color Experience
+          Generator
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

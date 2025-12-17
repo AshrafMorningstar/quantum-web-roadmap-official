@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum Internet Protocol Stack Visualization">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>Quantum Protocol Stack</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="network-monitor">
+        <header>
+            <h1>QIP Stack Inspector</h1>
+            <div class="metrics">
+                <span>Entanglement Fidelity: <b id="fidVal">99.9%</b></span>
+                <span>Qubits/sec: <b id="rateVal">500</b></span>
+            </div>
+        </header>
+
+        <div class="stack-view">
+            <!-- Application Layer -->
+            <div class="layer" id="layer-app">
+                <div class="layer-header">
+                    <span class="l-name">Layer 7: Application (Q-apps)</span>
+                    <span class="l-status">IDLE</span>
+                </div>
+                <div class="packet-stream"></div>
+            </div>
+
+            <!-- Transport Layer (Teleportation) -->
+            <div class="layer" id="layer-transport">
+                <div class="layer-header">
+                    <span class="l-name">Layer 4: Transport (Teleportation)</span>
+                    <span class="l-status">ACTIVE</span>
+                </div>
+                <div class="packet-stream"></div>
+            </div>
+
+            <!-- Network Layer (Entanglement Swapping) -->
+            <div class="layer" id="layer-network">
+                <div class="layer-header">
+                    <span class="l-name">Layer 3: Network (Entanglement Swapping)</span>
+                    <span class="l-status">ROUTING</span>
+                </div>
+                <div class="packet-stream"></div>
+            </div>
+
+            <!-- Link Layer -->
+            <div class="layer" id="layer-link">
+                <div class="layer-header">
+                    <span class="l-name">Layer 2: Link (EPR Generation)</span>
+                    <span class="l-status">GENERATING</span>
+                </div>
+                <div class="packet-stream"></div>
+            </div>
+
+            <!-- Physical Layer -->
+            <div class="layer" id="layer-phy">
+                <div class="layer-header">
+                    <span class="l-name">Layer 1: Physical (Photon/Fiber)</span>
+                    <span class="l-status">TRANSMITTING</span>
+                </div>
+                <canvas id="photonCanvas"></canvas>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="sendPacketBtn">Inject Qubit Packet</button>
+            <button id="decohereBtn" class="danger">Simulate Decoherence</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

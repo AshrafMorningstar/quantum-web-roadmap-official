@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum Cryptographic Messenger - QKD Simulation">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>Quantum Messenger</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="messenger-app">
+        <aside class="qkd-status">
+            <h2>QKD Protocol</h2>
+            
+            <div class="channel-status">
+                <div class="status-indicator online"></div>
+                <span>Quantum Channel: STABLE</span>
+            </div>
+
+            <div class="key-gen">
+                <h3>Shared Secret Key</h3>
+                <div id="sharedKeyDisplay" class="key-stream">Generating...</div>
+                <div class="entropy-meter">
+                    <div class="fill" id="entropyFill"></div>
+                </div>
+                <small>Entropy: <span id="entropyVal">0%</span></small>
+            </div>
+
+            <div class="eavesdropper-alert" id="eveAlert">
+                ⚠️ EAVESDROPPER DETECTED (Eve)
+                <small>Wave function collapsed prematurely</small>
+            </div>
+        </aside>
+
+        <main class="chat-interface">
+            <header>
+                <div class="user-info">
+                    <div class="avatar">A</div>
+                    <span>Alice (You)</span>
+                </div>
+                <div class="connection-line">
+                    <span class="lock-icon">🔒 Quantum Encrypted</span>
+                    <div class="user-info">
+                        <span>Bob</span>
+                        <div class="avatar">B</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="messages-area" id="msgArea">
+                <div class="msg system">Quantum Handshake initiated...</div>
+                <div class="msg system">Basis engaged: Rectilinear (+) / Diagonal (x)</div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="msgInput" placeholder="Type a message (auto-encrypts)...">
+                <button id="sendBtn">Send</button>
+            </div>
+        </main>
+        
+        <!-- Eve toggle for simulation -->
+        <div class="simulation-controls">
+            <label>
+                <input type="checkbox" id="eveToggle"> Simulate Eve (Eavesdropper)
+            </label>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

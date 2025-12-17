@@ -1,0 +1,379 @@
+/**
+ * Quantum Web Development Roadmap - Core CSS Framework
+ * Author: Ashraf Morningstar
+ * GitHub: https://github.com/AshrafMorningstar
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Quantum Color Palette */
+  --quantum-primary: hsl(270, 100%, 60%);
+  --quantum-secondary: hsl(180, 100%, 50%);
+  --quantum-tertiary: hsl(300, 100%, 50%);
+  --quantum-accent: hsl(60, 100%, 50%);
+  
+  /* Superposition States */
+  --superposition-opacity: 0.7;
+  --collapsed-opacity: 1.0;
+  --decoherence-opacity: 0.3;
+  
+  /* Quantum Effects */
+  --entanglement-glow: 0 0 20px var(--quantum-primary);
+  --quantum-shadow: 0 8px 32px rgba(138, 43, 226, 0.3);
+  --decoherence-blur: blur(2px);
+  --hologram-gradient: linear-gradient(135deg, 
+    rgba(0, 255, 255, 0.1) 0%, 
+    rgba(255, 0, 255, 0.1) 100%);
+  
+  /* Premium Typography */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing (Golden Ratio) */
+  --space-xs: 0.382rem;
+  --space-sm: 0.618rem;
+  --space-md: 1rem;
+  --space-lg: 1.618rem;
+  --space-xl: 2.618rem;
+  --space-xxl: 4.236rem;
+  
+  /* Dark Theme Base */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Quantum Button Component */
+.quantum-btn {
+  position: relative;
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--hologram-gradient);
+  border: 2px solid var(--quantum-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  box-shadow: var(--quantum-shadow);
+}
+
+.quantum-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--quantum-primary) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.quantum-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 48px rgba(138, 43, 226, 0.5);
+  border-color: var(--quantum-secondary);
+}
+
+.quantum-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.quantum-btn:active {
+  transform: translateY(0);
+}
+
+/* Holographic Card Component */
+.holo-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) contrast(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: var(--space-lg);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.holo-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--quantum-secondary);
+  box-shadow: 
+    0 16px 64px rgba(0, 255, 255, 0.3),
+    inset 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+/* Quantum State Indicators */
+.quantum-state[data-state="superposition"] {
+  opacity: var(--superposition-opacity);
+  animation: quantum-fluctuation 2s infinite ease-in-out;
+}
+
+.quantum-state[data-state="collapsed"] {
+  opacity: var(--collapsed-opacity);
+  animation: collapse-flash 0.5s ease-out;
+}
+
+.quantum-state[data-state="decoherence"] {
+  opacity: var(--decoherence-opacity);
+  filter: var(--decoherence-blur);
+}
+
+/* Entanglement Visualization */
+.entangled {
+  position: relative;
+}
+
+.entangled::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--quantum-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: entanglement-pulse 2s infinite;
+  pointer-events: none;
+}
+
+/* Quantum Animations */
+@keyframes quantum-fluctuation {
+  0%, 100% {
+    opacity: var(--superposition-opacity);
+    transform: translateY(0);
+  }
+  50% {
+    opacity: calc(var(--superposition-opacity) + 0.2);
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes collapse-flash {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1.2;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes entanglement-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+@keyframes quantum-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes quantum-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--quantum-primary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--quantum-primary), 0 0 40px var(--quantum-secondary);
+  }
+}
+
+/* Probability Wave Display */
+.probability-wave {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.probability-wave svg {
+  width: 100%;
+  height: 100%;
+}
+
+.probability-wave path {
+  fill: none;
+  stroke: var(--quantum-primary);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 8px var(--quantum-primary));
+  animation: wave-flow 3s infinite linear;
+}
+
+@keyframes wave-flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 100;
+  }
+}
+
+/* Temporal Slider */
+.temporal-slider {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  padding: var(--space-sm);
+  overflow: hidden;
+}
+
+.temporal-slider input[type="range"] {
+  width: 100%;
+  height: 100%;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.temporal-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--quantum-primary);
+  box-shadow: 0 0 20px var(--quantum-primary);
+  cursor: grab;
+  transition: all 0.2s;
+}
+
+.temporal-slider input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 30px var(--quantum-primary);
+}
+
+.temporal-slider input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+/* Quantum Grid Layout */
+.quantum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+}
+
+/* Quantum Particle Effect */
+.quantum-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--quantum-primary);
+  box-shadow: 0 0 10px var(--quantum-primary);
+  pointer-events: none;
+  animation: particle-float 4s infinite ease-in-out;
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 100px), var(--ty, -100px));
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --space-xs: 0.3rem;
+    --space-sm: 0.5rem;
+    --space-md: 0.8rem;
+    --space-lg: 1.2rem;
+    --space-xl: 2rem;
+  }
+  
+  .quantum-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Utility Classes */
+.text-quantum {
+  background: linear-gradient(90deg, var(--quantum-primary), var(--quantum-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-quantum {
+  animation: quantum-glow 2s infinite;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: quantum-shimmer 3s infinite linear;
+}

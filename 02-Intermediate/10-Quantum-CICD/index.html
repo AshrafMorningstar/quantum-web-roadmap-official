@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum CI/CD Pipeline - Parallel Universe Testing">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>Quantum CI/CD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="pipeline-dashboard">
+        <header>
+            <h1>Quantum Pipeline <span class="build-id">#84F2-Q</span></h1>
+            <div class="controls">
+                <button id="triggerBuildBtn" class="primary">Initiate Quantum Build</button>
+            </div>
+        </header>
+
+        <div class="multiverse-container">
+            <div class="universe-track">
+                <div class="universe-label">Universe A (Main)</div>
+                <div class="pipeline-steps" id="track-A">
+                    <!-- Steps injected here -->
+                </div>
+            </div>
+            
+            <div class="universe-track">
+                <div class="universe-label">Universe B (Edge Case)</div>
+                <div class="pipeline-steps" id="track-B"></div>
+            </div>
+
+            <div class="universe-track">
+                <div class="universe-label">Universe C (Legacy)</div>
+                <div class="pipeline-steps" id="track-C"></div>
+            </div>
+            
+            <div class="universe-track">
+                <div class="universe-label">Universe D (Entropy)</div>
+                <div class="pipeline-steps" id="track-D"></div>
+            </div>
+        </div>
+
+        <section class="logs-terminal">
+            <div class="terminal-header">Quantum Execution Logs</div>
+            <div class="terminal-body" id="buildLogs">
+                <div class="log-line">Waiting for trigger...</div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node
+node_modules/
+npm-debug.log
+
+# Editor directories
+.vscode/
+.idea/
+
+# Build artifacts (though we are no-build, good practice)
+dist/
+build/

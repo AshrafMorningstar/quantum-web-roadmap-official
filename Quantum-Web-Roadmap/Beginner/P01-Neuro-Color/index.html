@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+      ⚛️ QUANTUM WEB DEVELOPMENT ROADMAP
+      Created by Ashraf Morningstar (https://github.com/AshrafMorningstar) 
+    -->
+    <meta name="author" content="Ashraf Morningstar">
+    <meta name="publisher" content="Ashraf Morningstar">
+    <meta name="copyright" content="Ashraf Morningstar">
+    <meta name="description" content="Explore 18 revolutionary quantum-inspired web projects by Ashraf Morningstar. From neural color generators to distributed quantum simulations. #QuantumWeb #WebDev">
+    <meta name="keywords" content="Quantum Web Development, AI Web Projects, Future Web Tech, 3D Web Design, Glassmorphism, WebAssembly, Ashraf Morningstar Portfolio">
+    
+    <!-- Open Graph / Viral Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quantum Web Roadmap | Ashraf Morningstar">
+    <meta property="og:description" content="Experience the future of web development. 18 revolutionary projects by Ashraf Morningstar.">
+    <meta property="og:image" content="https://opengraph.githubassets.com/1/AshrafMorningstar/Quantum-Web-Roadmap">
+    <meta property="og:url" content="https://github.com/AshrafMorningstar">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantum Web Roadmap | Ashraf Morningstar">
+    <meta name="twitter:description" content="18 Revolutionary Web Projects. Zero Setup. Pure Magic.">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro-Synaptic Color Experience Generator | Ashraf Morningstar</title>
+    <meta name="author" content="Ashraf Morningstar">
+    <link rel="stylesheet" href="../../assets/css/quantum-core.css">
+    <style>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, var(--quantum-primary), var(--quantum-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .video-container {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        #webcam {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .iris-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .color-display {
+            background: var(--hologram-gradient);
+            border-radius: 20px;
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            transition: background 0.5s ease;
+        }
+
+        .color-preview {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 0 60px currentColor;
+            transition: all 0.3s ease;
+            animation: quantum-glow 3s infinite;
+        }
+
+        .color-info {
+            text-align: center;
+            font-family: var(--font-display);
+        }
+
+        .color-value {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .neuro-pattern-canvas {
+            width: 100%;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin-top: var(--space-xl);
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .control-group {
+            background: rgba(255, 255, 255, 0.05);
+            padding: var(--space-md);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .control-label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--quantum-secondary);
+        }
+
+        .saved-colors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: var(--space-sm);
+            margin-top: var(--space-xl);
+        }
+
+        .saved-color {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .saved-color:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 968px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">⚛️ Neuro-Synaptic Color Experience Generator</h1>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                Your eyes and typing patterns create unique color palettes
+            </p>
+            <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: var(--space-sm);">
+                By <a href="https://github.com/AshrafMorningstar" style="color: var(--quantum-secondary);">Ashraf Morningstar</a>
+            </p>
+        </div>
+
+        <div class="main-grid">
+            <div class="holo-card">
+                <h3 style="margin-bottom: var(--space-md); font-family: var(--font-display);">📹 Neural Input</h3>
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas class="iris-overlay" id="iris-canvas"></canvas>
+                </div>
+                <button class="quantum-btn" id="start-btn" style="margin-top: var(--space-md); width: 100%;">
+                    🎥 Start Webcam
+                </button>
+            </div>
+
+            <div class="color-display" id="color-display">
+                <div class="color-preview" id="color-preview"></div>
+                <div class="color-info">
+                    <div class="color-value" id="color-value">HSL(270, 100%, 60%)</div>
+                    <p style="color: var(--text-secondary);">Generated from your neuro-patterns</p>
+                    <button class="quantum-btn" id="save-color" style="margin-top: var(--space-md);">
+                        💾 Save Color
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="holo-card">
+            <h3 style="margin-bottom: var(--space-md); font-family: var(--font-display);">🧠 Neuro Pattern Visualization</h3>
+            <canvas class="neuro-pattern-canvas" id="pattern-canvas"></canvas>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label class="control-label">Attention Sensitivity</label>
+                <input type="range" min="0" max="100" value="50" id="attention-sensitivity" style="width: 100%;">
+                <span id="attention-value">50%</span>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Color Volatility</label>
+                <input type="range" min="0" max="100" value="30" id="volatility" style="width: 100%;">
+                <span id="volatility-value">30%</span>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Memory Decay</label>
+                <input type="range" min="0" max="100" value="20" id="memory-decay" style="width: 100%;">
+                <span id="decay-value">20%</span>
+            </div>
+        </div>
+
+        <div class="holo-card" style="margin-top: var(--space-xl);">
+            <h3 style="margin-bottom: var(--space-md); font-family: var(--font-display);">🎨 Saved Color Memory</h3>
+            <div class="saved-colors" id="saved-colors"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-xxl);">
+            <a href="../../index.html" class="quantum-btn">← Back to Roadmap</a>
+        </div>
+    </div>
+
+    <script src="../../assets/js/quantum-engine.js"></script>
+    <script>
+        /**
+         * Neuro-Synaptic Color Generator
+         * Author: Ashraf Morningstar
+         * GitHub: https://github.com/AshrafMorningstar
+         */
+
+        let webcamStream = null;
+        let animationId = null;
+        let currentColor = { h: 270, s: 100, l: 60 };
+        let colorHistory = [];
+        let savedColors = JSON.parse(localStorage.getItem('neuroColors') || '[]');
+
+        const webcam = document.getElementById('webcam');
+        const irisCanvas = document.getElementById('iris-canvas');
+        const irisCtx = irisCanvas.getContext('2d');
+        const patternCanvas = document.getElementById('pattern-canvas');
+        const patternCtx = patternCanvas.getContext('2d');
+        const colorDisplay = document.getElementById('color-display');
+        const colorPreview = document.getElementById('color-preview');
+        const colorValue = document.getElementById('color-value');
+        const startBtn = document.getElementById('start-btn');
+        const saveColorBtn = document.getElementById('save-color');
+
+        // Initialize canvas sizes
+        function resizeCanvases() {
+            irisCanvas.width = irisCanvas.offsetWidth;
+            irisCanvas.height = irisCanvas.offsetHeight;
+            patternCanvas.width = patternCanvas.offsetWidth;
+            patternCanvas.height = patternCanvas.offsetHeight;
+        }
+        resizeCanvases();
+        window.addEventListener('resize', resizeCanvases);
+
+        // Start webcam
+        startBtn.addEventListener('click', async () => {
+            try {
+                webcamStream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { facingMode: 'user' } 
+                });
+                webcam.srcObject = webcamStream;
+                startBtn.textContent = '✅ Webcam Active';
+                startBtn.disabled = true;
+                startAnalysis();
+            } catch (err) {
+                alert('Webcam access denied. Using simulated data.');
+                startSimulation();
+            }
+        });
+
+        // Simulated analysis (fallback)
+        function startSimulation() {
+            animationId = requestAnimationFrame(simulateNeuroInput);
+        }
+
+        function simulateNeuroInput() {
+            // Simulate attention patterns
+            const time = Date.now() / 1000;
+            const attention = (Math.sin(time * 0.5) + 1) / 2;
+            const typing = Math.random() * 0.3;
+            
+            updateColor(attention, typing);
+            drawPattern();
+            
+            animationId = requestAnimationFrame(simulateNeuroInput);
+        }
+
+        // Real webcam analysis
+        function startAnalysis() {
+            analyzeFrame();
+        }
+
+        function analyzeFrame() {
+            if (!webcamStream) return;
+
+            // Draw current frame for analysis
+            irisCtx.drawImage(webcam, 0, 0, irisCanvas.width, irisCanvas.height);
+            
+            // Simplified iris detection (center region brightness)
+            const centerX = irisCanvas.width / 2;
+            const centerY = irisCanvas.height / 2;
+            const imageData = irisCtx.getImageData(
+                centerX - 50, centerY - 50, 100, 100
+            );
+            
+            // Calculate average brightness (attention proxy)
+            let brightness = 0;
+            for (let i = 0; i < imageData.data.length; i += 4) {
+                brightness += (imageData.data[i] + imageData.data[i+1] + imageData.data[i+2]) / 3;
+            }
+            brightness /= (imageData.data.length / 4);
+            const attention = brightness / 255;
+
+            // Simulate typing rhythm (random for demo)
+            const typing = Math.random() * 0.2;
+
+            updateColor(attention, typing);
+            drawPattern();
+            drawIrisOverlay(centerX, centerY);
+
+            animationId = requestAnimationFrame(analyzeFrame);
+        }
+
+        function drawIrisOverlay(x, y) {
+            irisCtx.strokeStyle = '#00ffff';
+            irisCtx.lineWidth = 3;
+            irisCtx.beginPath();
+            irisCtx.arc(x, y, 50, 0, Math.PI * 2);
+            irisCtx.stroke();
+            
+            // Crosshair
+            irisCtx.beginPath();
+            irisCtx.moveTo(x - 60, y);
+            irisCtx.lineTo(x + 60, y);
+            irisCtx.moveTo(x, y - 60);
+            irisCtx.lineTo(x, y + 60);
+            irisCtx.stroke();
+        }
+
+        function updateColor(attention, typing) {
+            const sensitivity = document.getElementById('attention-sensitivity').value / 100;
+            const volatility = document.getElementById('volatility').value / 100;
+
+            // Quantum color calculation
+            const amplitude = Math.sqrt(attention ** 2 + typing ** 2);
+            const phase = Math.atan2(typing, attention);
+
+            // Convert to HSL
+            currentColor.h = (phase * 180 / Math.PI + 180) % 360;
+            currentColor.s = 70 + amplitude * 30;
+            currentColor.l = 40 + attention * 40;
+
+            // Apply volatility
+            currentColor.h += (Math.random() - 0.5) * volatility * 60;
+            currentColor.s += (Math.random() - 0.5) * volatility * 20;
+            currentColor.l += (Math.random() - 0.5) * volatility * 20;
+
+            // Clamp values
+            currentColor.h = currentColor.h % 360;
+            currentColor.s = Math.max(0, Math.min(100, currentColor.s));
+            currentColor.l = Math.max(0, Math.min(100, currentColor.l));
+
+            // Update display
+            const colorString = `hsl(${Math.round(currentColor.h)}, ${Math.round(currentColor.s)}%, ${Math.round(currentColor.l)}%)`;
+            colorPreview.style.background = colorString;
+            colorValue.textContent = colorString.toUpperCase();
+            colorDisplay.style.background = `linear-gradient(135deg, ${colorString}, rgba(0,0,0,0.5))`;
+
+            // Add to history
+            colorHistory.push({ ...currentColor, time: Date.now() });
+            if (colorHistory.length > 200) colorHistory.shift();
+        }
+
+        function drawPattern() {
+            const decay = document.getElementById('memory-decay').value / 100;
+            
+            // Fade previous frame
+            patternCtx.fillStyle = `rgba(10, 10, 10, ${decay * 0.1})`;
+            patternCtx.fillRect(0, 0, patternCanvas.width, patternCanvas.height);
+
+            // Draw color history as wave
+            if (colorHistory.length < 2) return;
+
+            patternCtx.strokeStyle = `hsl(${currentColor.h}, ${currentColor.s}%, ${currentColor.l}%)`;
+            patternCtx.lineWidth = 3;
+            patternCtx.shadowBlur = 20;
+            patternCtx.shadowColor = patternCtx.strokeStyle;
+            patternCtx.beginPath();
+
+            const step = patternCanvas.width / colorHistory.length;
+            colorHistory.forEach((color, i) => {
+                const x = i * step;
+                const y = patternCanvas.height / 2 + Math.sin(i * 0.1) * (color.l - 50);
+                
+                if (i === 0) {
+                    patternCtx.moveTo(x, y);
+                } else {
+                    patternCtx.lineTo(x, y);
+                }
+            });
+            patternCtx.stroke();
+            patternCtx.shadowBlur = 0;
+        }
+
+        // Save color
+        saveColorBtn.addEventListener('click', () => {
+            const colorString = `hsl(${Math.round(currentColor.h)}, ${Math.round(currentColor.s)}%, ${Math.round(currentColor.l)}%)`;
+            savedColors.push(colorString);
+            localStorage.setItem('neuroColors', JSON.stringify(savedColors));
+            renderSavedColors();
+            
+            // Flash effect
+            saveColorBtn.textContent = '✅ Saved!';
+            setTimeout(() => {
+                saveColorBtn.textContent = '💾 Save Color';
+            }, 1000);
+        });
+
+        function renderSavedColors() {
+            const container = document.getElementById('saved-colors');
+            container.innerHTML = savedColors.map((color, i) => 
+                `<div class="saved-color" style="background: ${color};" 
+                      onclick="applyColor('${color}')" 
+                      title="${color}"></div>`
+            ).join('');
+        }
+
+        function applyColor(color) {
+            colorPreview.style.background = color;
+            colorValue.textContent = color.toUpperCase();
+            colorDisplay.style.background = `linear-gradient(135deg, ${color}, rgba(0,0,0,0.5))`;
+        }
+
+        // Control updates
+        document.getElementById('attention-sensitivity').addEventListener('input', (e) => {
+            document.getElementById('attention-value').textContent = e.target.value + '%';
+        });
+        document.getElementById('volatility').addEventListener('input', (e) => {
+            document.getElementById('volatility-value').textContent = e.target.value + '%';
+        });
+        document.getElementById('memory-decay').addEventListener('input', (e) => {
+            document.getElementById('decay-value').textContent = e.target.value + '%';
+        });
+
+        // Initialize
+        renderSavedColors();
+        
+        // Auto-start simulation if no webcam
+        setTimeout(() => {
+            if (!webcamStream) {
+                startSimulation();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

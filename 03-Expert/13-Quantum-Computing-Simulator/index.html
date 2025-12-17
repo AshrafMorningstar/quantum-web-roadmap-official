@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Distributed Quantum Computing Simulator">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>Quantum Circuit Composer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="simulator-layout">
+        <aside class="toolbox">
+            <h2>Gates</h2>
+            <div class="gates-list">
+                <div class="gate" draggable="true" data-type="H">H</div>
+                <div class="gate" draggable="true" data-type="X">X</div>
+                <div class="gate" draggable="true" data-type="Y">Y</div>
+                <div class="gate" draggable="true" data-type="Z">Z</div>
+                <div class="gate" draggable="true" data-type="CNOT">⊕</div>
+                <div class="gate" draggable="true" data-type="M">Measure</div>
+            </div>
+            <div class="info-panel">
+                <h3>Qubit State</h3>
+                <div id="bloch-sphere-mock">
+                    <!-- Visual mock -->
+                    <div class="sphere"></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="composer">
+            <header>
+                <h1>Quantum Circuit Composer</h1>
+                <div class="actions">
+                    <button id="runBtn">Run Simulation</button>
+                    <button id="clearBtn">Clear</button>
+                </div>
+            </header>
+
+            <div class="circuit-grid" id="circuit">
+                <!-- Qubit Lines -->
+                <div class="qubit-line" data-qubit="0">
+                    <span class="q-label">q[0] |0⟩</span>
+                    <div class="wire"></div>
+                </div>
+                <div class="qubit-line" data-qubit="1">
+                    <span class="q-label">q[1] |0⟩</span>
+                    <div class="wire"></div>
+                </div>
+                <div class="qubit-line" data-qubit="2">
+                    <span class="q-label">q[2] |0⟩</span>
+                    <div class="wire"></div>
+                </div>
+            </div>
+
+            <div class="results-panel">
+                <h2>Measurement Probabilities</h2>
+                <div class="bar-chart" id="resultsChart">
+                    <div class="bar-container">
+                        <div class="bar-label">000</div>
+                        <div class="bar" style="height: 100%"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

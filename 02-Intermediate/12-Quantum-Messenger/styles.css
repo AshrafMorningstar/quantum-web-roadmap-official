@@ -1,0 +1,193 @@
+/** Quantum Messenger Styles | Author: Ashraf Morningstar */
+:root {
+    --bg-dark: #121212;
+    --bg-panel: #1e1e1e;
+    --primary: #bb86fc;
+    --secondary: #03dac6;
+    --error: #cf6679;
+    --border: #333;
+    --text: #e0e0e0;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messenger-app {
+    width: 900px;
+    height: 600px;
+    background: var(--bg-panel);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.qkd-status {
+    width: 250px;
+    background: #181818;
+    border-right: 1px solid var(--border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h2, h3 { color: var(--primary); margin: 0 0 10px 0; font-size: 1rem; }
+
+.channel-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: var(--secondary);
+}
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+}
+
+.key-stream {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--text);
+    word-break: break-all;
+    background: var(--bg-dark);
+    padding: 10px;
+    border-radius: 4px;
+    height: 100px;
+    overflow-y: hidden;
+}
+
+.entropy-meter {
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+.fill { height: 100%; width: 0%; background: var(--secondary); transition: 0.3s; }
+
+.eavesdropper-alert {
+    background: rgba(207, 102, 121, 0.1);
+    border: 1px solid var(--error);
+    color: var(--error);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: none;
+    animation: pulseAlert 1s infinite;
+}
+@keyframes pulseAlert { 50% { opacity: 0.5; } }
+
+/* Main Chat */
+.chat-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info { display: flex; align-items: center; gap: 10px; }
+.avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.messages-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.msg {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.msg.system {
+    align-self: center;
+    background: transparent;
+    color: #666;
+    font-style: italic;
+    padding: 5px;
+}
+
+.msg.sent {
+    align-self: flex-end;
+    background: var(--primary);
+    color: black;
+}
+
+.msg.received {
+    align-self: flex-start;
+    background: #333;
+}
+
+.scrambled { font-family: monospace; letter-spacing: 2px; }
+
+.input-area {
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #2c2c2c;
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: var(--secondary);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.simulation-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: black;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}

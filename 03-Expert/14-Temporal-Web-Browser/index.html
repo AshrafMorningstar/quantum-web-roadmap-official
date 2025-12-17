@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Temporal Web Browser - Navigate Web History">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>ChronoBrowser</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="browser-chrome">
+        <div class="address-bar">
+            <button class="nav-btn">←</button>
+            <button class="nav-btn">→</button>
+            <button class="nav-btn">↻</button>
+            <input type="text" value="https://example.com" class="url-input" id="urlBar">
+            
+            <div class="temporal-dial-container">
+                <span class="icon">⏳</span>
+                <input type="date" id="datePicker" value="2024-12-16">
+            </div>
+        </div>
+
+        <div class="temporal-slider-container">
+            <span class="badgem-past">1990</span>
+            <input type="range" min="1990" max="2030" value="2024" id="timeSlider" class="time-range">
+            <span class="badge-future">2030</span>
+            <div class="current-year" id="yearDisplay">Year: 2024</div>
+        </div>
+
+        <div class="viewport" id="browserViewport">
+            <!-- Simulated Content -->
+            <div class="webpage-content">
+                <header class="page-header" id="pageHeader">
+                    <h1 id="pageTitle">Welcome to Example.com</h1>
+                </header>
+                <main id="pageBody">
+                    <p>This domain is established to be used for illustrative examples in documents.</p>
+                </main>
+                <footer id="pageFooter">© 2024 Example Corp</footer>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

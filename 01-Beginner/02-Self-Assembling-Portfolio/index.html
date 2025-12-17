@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Self-Assembling Portfolio Architecture - Auto-redesigning portfolio based on code analysis"
+    />
+    <meta name="author" content="Ashraf Morningstar" />
+    <title>Self-Assembling Portfolio Architecture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="quantum-container">
+      <header class="quantum-header">
+        <h1 class="quantum-title">Self-Assembling Portfolio</h1>
+        <p class="quantum-subtitle">
+          Your portfolio that evolves with your code
+        </p>
+        <div class="author-credit">
+          <span>Created by <strong>Ashraf Morningstar</strong></span>
+          <a href="https://github.com/AshrafMorningstar" target="_blank"
+            >GitHub</a
+          >
+        </div>
+      </header>
+
+      <main class="quantum-main">
+        <section class="analysis-panel">
+          <h2>📊 Code Analysis Engine</h2>
+          <div class="analysis-controls">
+            <input
+              type="text"
+              id="githubUsername"
+              placeholder="Enter GitHub username"
+              class="quantum-input"
+            />
+            <button id="analyzeBtn" class="quantum-button">
+              Analyze Skills
+            </button>
+          </div>
+          <div class="analysis-results" id="analysisResults">
+            <p class="placeholder-text">
+              Enter a GitHub username to analyze skill vectors...
+            </p>
+          </div>
+        </section>
+
+        <section class="skill-visualization">
+          <h2>🎯 Skill Vector Visualization</h2>
+          <canvas id="skillCanvas"></canvas>
+          <div class="skill-legend" id="skillLegend"></div>
+        </section>
+
+        <section class="layout-superposition">
+          <h2>🌊 Layout Superposition</h2>
+          <div class="layout-options" id="layoutOptions">
+            <div class="layout-preview" data-layout="grid">
+              <div class="preview-label">Grid Layout</div>
+              <div class="preview-demo grid-demo"></div>
+            </div>
+            <div class="layout-preview" data-layout="timeline">
+              <div class="preview-label">Timeline Layout</div>
+              <div class="preview-demo timeline-demo"></div>
+            </div>
+            <div class="layout-preview" data-layout="quantum">
+              <div class="preview-label">Quantum Layout</div>
+              <div class="preview-demo quantum-demo"></div>
+            </div>
+          </div>
+          <button id="collapseLayoutBtn" class="quantum-button">
+            Collapse to Optimal Layout
+          </button>
+        </section>
+
+        <section class="portfolio-preview">
+          <h2>👁️ Live Portfolio Preview</h2>
+          <div class="preview-container" id="portfolioPreview">
+            <div class="preview-placeholder">
+              <p>Your self-assembled portfolio will appear here...</p>
+            </div>
+          </div>
+          <div class="preview-controls">
+            <button id="exportBtn" class="control-btn">Export HTML</button>
+            <button id="shareBtn" class="control-btn">Share Link</button>
+            <button id="refreshBtn" class="control-btn">Regenerate</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="quantum-footer">
+        <p>
+          &copy; 2024 Ashraf Morningstar |
+          <a href="https://github.com/AshrafMorningstar" target="_blank"
+            >GitHub</a
+          >
+        </p>
+        <p class="quantum-note">
+          Quantum Web Development Project #2 - Self-Assembling Portfolio
+          Architecture
+        </p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

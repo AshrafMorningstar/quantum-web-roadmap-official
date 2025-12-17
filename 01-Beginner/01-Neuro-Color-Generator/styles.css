@@ -1,0 +1,579 @@
+/**
+ * Neuro-Synaptic Color Experience Generator
+ * Author: Ashraf Morningstar
+ * GitHub: https://github.com/AshrafMorningstar
+ */
+
+/* ===== QUANTUM COLOR THEORY ===== */
+:root {
+  /* Quantum States */
+  --quantum-state-0: #000000;
+  --quantum-state-1: #2a00ff;
+  --quantum-state-2: #ff00aa;
+  --quantum-superposition: linear-gradient(
+    45deg,
+    var(--quantum-state-1) 0%,
+    transparent 50%,
+    var(--quantum-state-2) 100%
+  );
+
+  /* Color Palette */
+  --primary-bg: #0a0a0f;
+  --secondary-bg: #1a1a2e;
+  --accent-cyan: #00ffff;
+  --accent-magenta: #ff00ff;
+  --accent-gold: #ffd700;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Transitions */
+  --transition-quantum: 0.618s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --transition-smooth: 0.3s ease;
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--primary-bg) 0%,
+    var(--secondary-bg) 100%
+  );
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.quantum-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+/* ===== HEADER ===== */
+.quantum-header {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: linear-gradient(
+    135deg,
+    rgba(42, 0, 255, 0.1) 0%,
+    rgba(255, 0, 170, 0.1) 100%
+  );
+  border-radius: 20px;
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: quantum-pulse 4s infinite;
+}
+
+@keyframes quantum-pulse {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+.quantum-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    var(--accent-cyan),
+    var(--accent-magenta),
+    var(--accent-gold)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.quantum-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+.author-credit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.author-credit a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.author-credit a:hover {
+  color: var(--accent-magenta);
+  text-shadow: 0 0 10px var(--accent-magenta);
+}
+
+/* ===== MAIN CONTENT ===== */
+.quantum-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+section {
+  background: rgba(26, 26, 46, 0.6);
+  border-radius: 15px;
+  padding: var(--spacing-lg);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: var(--transition-quantum);
+}
+
+section:hover {
+  border-color: rgba(0, 255, 255, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+section h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* ===== BIOMETRIC PANEL ===== */
+.biometric-panel {
+  grid-column: 1 / -1;
+}
+
+.biometric-status {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.status-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.status-bar {
+  height: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  position: relative;
+}
+
+.status-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  border-radius: 15px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.status-value {
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.quantum-state-indicator {
+  height: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-particle {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, var(--accent-magenta), transparent);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  animation: quantum-float 3s infinite ease-in-out;
+  box-shadow: 0 0 20px var(--accent-magenta);
+}
+
+@keyframes quantum-float {
+  0%,
+  100% {
+    left: 10%;
+  }
+  50% {
+    left: 85%;
+  }
+}
+
+/* ===== BUTTONS ===== */
+.quantum-button,
+.control-btn {
+  background: linear-gradient(
+    135deg,
+    var(--accent-cyan),
+    var(--accent-magenta)
+  );
+  color: var(--text-primary);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-quantum);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-button::before,
+.control-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.quantum-button:hover::before,
+.control-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.quantum-button:hover,
+.control-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 0, 255, 0.5);
+}
+
+.quantum-button:active,
+.control-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===== COLOR CANVAS ===== */
+.color-canvas {
+  grid-column: 1 / -1;
+}
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+}
+
+#quantumCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.color-particles {
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-controls {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===== PALETTE DISPLAY ===== */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.color-swatch {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-quantum);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1) rotate(5deg);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+}
+
+.color-swatch::after {
+  content: attr(data-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  font-size: 0.7rem;
+  text-align: center;
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.color-swatch:hover::after {
+  opacity: 1;
+}
+
+.palette-info {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+#neuroSignature {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* ===== MEMORY BANK ===== */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.memory-item {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: var(--spacing-sm);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.memory-item:hover {
+  border-color: var(--accent-magenta);
+  transform: translateY(-3px);
+}
+
+.memory-colors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.memory-color {
+  aspect-ratio: 1;
+  border-radius: 5px;
+}
+
+.memory-info {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.memory-placeholder {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-secondary);
+}
+
+/* ===== INTERACTION AREA ===== */
+.interaction-area {
+  grid-column: 1 / -1;
+}
+
+#neuralInput {
+  width: 100%;
+  min-height: 150px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: var(--spacing-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: "Courier New", monospace;
+  resize: vertical;
+  margin-bottom: var(--spacing-md);
+  transition: var(--transition-smooth);
+}
+
+#neuralInput:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.interaction-stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.interaction-stats strong {
+  color: var(--accent-cyan);
+}
+
+/* ===== FOOTER ===== */
+.quantum-footer {
+  text-align: center;
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.quantum-footer a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+}
+
+.quantum-footer a:hover {
+  color: var(--accent-magenta);
+}
+
+.quantum-note {
+  margin-top: var(--spacing-sm);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .quantum-title {
+    font-size: 2rem;
+  }
+
+  .quantum-main {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-container {
+    height: 300px;
+  }
+
+  .canvas-controls {
+    flex-direction: column;
+  }
+
+  .control-btn {
+    width: 100%;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== QUANTUM ANIMATIONS ===== */
+@keyframes quantum-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes quantum-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.quantum-loading {
+  animation: quantum-rotate 2s linear infinite;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Temporal API Gateway - Query the Past and Future">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>Temporal API Gateway</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="api-console">
+        <header>
+            <div class="logo">⏳ ChronosAPI</div>
+            <div class="status">Gateway: ONLINE | Causality: ENFORCED</div>
+        </header>
+
+        <main>
+            <section class="request-panel">
+                <h2>Construct Temporal Request</h2>
+                <div class="input-group">
+                    <label>Endpoint</label>
+                    <select id="endpoint">
+                        <option value="/v1/users/stats">GET /v1/users/stats</option>
+                        <option value="/v1/finance/market">GET /v1/finance/market</option>
+                        <option value="/v1/system/health">GET /v1/system/health</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Temporal Target</label>
+                    <div class="temporal-inputs">
+                        <input type="date" id="targetDate">
+                        <input type="time" id="targetTime">
+                    </div>
+                    <small>Leave blank for NOW. Future dates require Predictive Clearance.</small>
+                </div>
+
+                <div class="input-group">
+                    <label>Quantum Probability Threshold</label>
+                    <input type="range" min="0" max="1" step="0.01" value="0.9" id="probThreshold">
+                    <span id="probDisplay">0.90</span>
+                </div>
+
+                <button id="sendReqBtn">🚀 Transmit Request</button>
+            </section>
+
+            <section class="response-panel">
+                <h2>Temporal Response</h2>
+                <div class="response-meta">
+                    <span id="resStatus">Status: WAITING</span>
+                    <span id="resTime">Time-to-Live: --</span>
+                </div>
+                <pre id="jsonOutput">// Response payload will appear here...</pre>
+            </section>
+        </main>
+        
+        <div class="timeline-vis">
+             <!-- Canvas for timeline visualization -->
+             <canvas id="timeCanvas"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

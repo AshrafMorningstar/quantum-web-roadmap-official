@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Holographic 3D CSS Playground - Render CSS as 3D Holograms">
+    <meta name="author" content="Ashraf Morningstar">
+    <title>Holographic 3D CSS Playground</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div class="holo-container">
+        <div class="interface-overlay">
+            <header>
+                <h1>Holographic CSS</h1>
+                <p>CSS Transform to Photon Mapping</p>
+                <div class="author-tag">Created by Ashraf Morningstar</div>
+            </header>
+            
+            <div class="controls-panel">
+                <div class="css-editor">
+                    <h3>Source CSS</h3>
+                    <textarea id="cssInput" spellcheck="false">
+.hologram {
+    background: #00ffcc;
+    border-radius: 50%;
+    transform: rotateX(45deg) rotateY(45deg);
+    box-shadow: 0 0 50px #00ffcc;
+}
+                    </textarea>
+                </div>
+
+                <div class="sliders">
+                    <label>Hologram Intensity</label>
+                    <input type="range" id="intensitySlider" min="0" max="2" step="0.1" value="1">
+                    
+                    <label>Flux Density</label>
+                    <input type="range" id="fluxSlider" min="0" max="100" value="50">
+                    
+                    <label>Interference Pattern</label>
+                    <input type="range" id="interferenceSlider" min="0" max="10" value="1">
+                </div>
+
+                <div class="actions">
+                    <button id="renderBtn">⚡ Project Hologram</button>
+                    <button id="resetBtn">↺ Reset Field</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="hologramStage"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

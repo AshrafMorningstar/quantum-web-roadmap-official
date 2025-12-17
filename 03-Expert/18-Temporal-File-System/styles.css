@@ -1,0 +1,149 @@
+/** TVFS Styles | Author: Ashraf Morningstar */
+:root {
+    --bg-dark: #1e1e1e;
+    --sidebar: #252526;
+    --accent: #007acc;
+    --text: #d4d4d4;
+    --border: #3e3e42;
+}
+
+body {
+    margin: 0;
+    background: var(--bg-dark);
+    color: var(--text);
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.tvfs-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    background: #3c3c3c;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo { font-weight: bold; font-family: monospace; }
+
+.search-bar input {
+    background: #252526;
+    border: 1px solid #555;
+    color: white;
+    padding: 5px 10px;
+    width: 300px;
+}
+
+.main-split {
+    display: flex;
+    flex: 1;
+}
+
+.file-tree {
+    width: 250px;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    padding: 10px;
+}
+
+ul { list-style: none; padding-left: 20px; margin: 0; }
+.folder > ul { display: none; }
+.folder.open > ul { display: block; }
+
+li { padding: 5px 0; cursor: pointer; }
+li:hover { color: white; }
+li.active { color: var(--accent); font-weight: bold; }
+
+.file-viewer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #1e1e1e;
+}
+
+.viewer-header {
+    background: #2d2d2d;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.code-editor {
+    flex: 1;
+    padding: 20px;
+    font-family: 'Consolas', monospace;
+    white-space: pre;
+    overflow: auto;
+    color: #9cdcfe;
+    line-height: 1.5;
+}
+
+.temporal-deck {
+    height: 150px;
+    background: #252526;
+    border-top: 1px solid var(--border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.deck-header {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-track {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #444;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.version-node {
+    position: absolute;
+    top: 30%;
+    transform: translateX(-50%);
+    background: #252526;
+    padding: 2px 5px;
+    font-size: 0.7rem;
+    border: 1px solid #666;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.time-scrubber {
+    width: 100%;
+    position: relative;
+    z-index: 20;
+    opacity: 0.7;
+    cursor: ew-resize;
+}
+
+.diff-stats {
+    display: flex;
+    gap: 15px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+.added { color: #4ec9b0; }
+.removed { color: #f48771; }

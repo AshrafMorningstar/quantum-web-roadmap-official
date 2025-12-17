@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum Web Development Roadmap - A collection of 18 revolutionary web projects by Ashraf Morningstar">
+    <meta name="author" content="Ashraf Morningstar">
+    <meta name="keywords" content="Quantum Web, Ashraf Morningstar, Web Development, Advanced CSS, JavaScript, Portfolio">
+    <meta property="og:title" content="Quantum Web Roadmap">
+    <meta property="og:description" content="18 Revolutionary Web Projects by Ashraf Morningstar">
+    <title>Quantum Web Roadmap | Ashraf Morningstar</title>
+    <style>
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --accent: #00f3ff;
+            --secondary: #bd00ff;
+            --card-bg: #111;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 50px;
+        }
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 10px 0;
+        }
+        .author-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 1px solid var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .author-link:hover {
+            background: var(--accent);
+            color: black;
+            box-shadow: 0 0 20px var(--accent);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .tier-section {
+            grid-column: 1 / -1;
+            margin: 40px 0 20px 0;
+        }
+        .tier-title {
+            font-size: 2rem;
+            color: var(--secondary);
+            border-left: 5px solid var(--secondary);
+            padding-left: 15px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            transition: 0.3s;
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+        }
+        .card h3 { margin: 0 0 10px 0; color: var(--accent); }
+        .card p { font-size: 0.9rem; color: #aaa; }
+        .card .tech {
+            margin-top: auto;
+            display: flex;
+            gap: 5px;
+            font-size: 0.8rem;
+        }
+        .tag {
+            background: #222;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quantum Web Roadmap</h1>
+        <p>18 Revolutionary Projects redefining the Web</p>
+        <br>
+        <a href="https://github.com/AshrafMorningstar" class="author-link" target="_blank">Created by Ashraf Morningstar</a>
+    </header>
+
+    <div class="grid">
+        <div class="tier-section"><h2 class="tier-title">Tier 1: Beginner (Foundations)</h2></div>
+        
+        <a href="./01-Beginner/01-Neuro-Color-Generator/index.html" class="card">
+            <h3>01. Neuro-Synaptic Color</h3>
+            <p>Biometric color palettes using webcam entropy.</p>
+            <div class="tech"><span class="tag">JS</span><span class="tag">Canvas</span></div>
+        </a>
+        <a href="./01-Beginner/02-Self-Assembling-Portfolio/index.html" class="card">
+            <h3>02. Self-Assembling Portfolio</h3>
+            <p>Quantum layout engine that builds itself.</p>
+            <div class="tech"><span class="tag">Grid</span><span class="tag">Auto</span></div>
+        </a>
+        <a href="./01-Beginner/03-Temporal-CSS-Studio/index.html" class="card">
+            <h3>03. Temporal CSS Studio</h3>
+            <p>Manipulate time in CSS animations.</p>
+            <div class="tech"><span class="tag">Keyframes</span><span class="tag">Time</span></div>
+        </a>
+        <a href="./01-Beginner/04-Quantum-Form-Manager/index.html" class="card">
+            <h3>04. Quantum Form Manager</h3>
+            <p>Input fields in superposition states.</p>
+            <div class="tech"><span class="tag">Forms</span><span class="tag">Validation</span></div>
+        </a>
+        <a href="./01-Beginner/05-Holographic-CSS-Playground/index.html" class="card">
+            <h3>05. Holographic CSS</h3>
+            <p>3D CSS rendering and projection.</p>
+            <div class="tech"><span class="tag">ThreeJS</span><span class="tag">3D</span></div>
+        </a>
+        <a href="./01-Beginner/06-Quantum-Git-Visualizer/index.html" class="card">
+            <h3>06. Quantum Git Viz</h3>
+            <p>Visualize version control timelines.</p>
+            <div class="tech"><span class="tag">D3.js</span><span class="tag">Graph</span></div>
+        </a>
+
+        <div class="tier-section"><h2 class="tier-title">Tier 2: Intermediate (Systems)</h2></div>
+        
+        <a href="./02-Intermediate/07-Quantum-Frontend-Framework/index.html" class="card">
+            <h3>07. Quantum Framework</h3>
+            <p>Components existing in multiple states.</p>
+            <div class="tech"><span class="tag">Framework</span><span class="tag">Core</span></div>
+        </a>
+        <a href="./02-Intermediate/08-Temporal-API-Gateway/index.html" class="card">
+            <h3>08. Temporal API Gateway</h3>
+            <p>Query future and past data endpoints.</p>
+            <div class="tech"><span class="tag">API</span><span class="tag">Mock</span></div>
+        </a>
+        <a href="./02-Intermediate/09-Holographic-Database/index.html" class="card">
+            <h3>09. Holographic Database</h3>
+            <p>3D Spatial Data Visualization.</p>
+            <div class="tech"><span class="tag">WebGL</span><span class="tag">Data</span></div>
+        </a>
+        <a href="./02-Intermediate/10-Quantum-CICD/index.html" class="card">
+            <h3>10. Quantum CI/CD</h3>
+            <p>Parallel universe build pipelines.</p>
+            <div class="tech"><span class="tag">DevOps</span><span class="tag">Sim</span></div>
+        </a>
+        <a href="./02-Intermediate/11-Neuro-Adaptive-Server/index.html" class="card">
+            <h3>11. Neuro-Adaptive Server</h3>
+            <p>Stress-responsive UI design.</p>
+            <div class="tech"><span class="tag">UX</span><span class="tag">Adaptive</span></div>
+        </a>
+        <a href="./02-Intermediate/12-Quantum-Messenger/index.html" class="card">
+            <h3>12. Quantum Messenger</h3>
+            <p>QKD Encrypted Chat Simulation.</p>
+            <div class="tech"><span class="tag">Crypto</span><span class="tag">Chat</span></div>
+        </a>
+
+        <div class="tier-section"><h2 class="tier-title">Tier 3: Expert (Architecture)</h2></div>
+        
+        <a href="./03-Expert/13-Quantum-Computing-Simulator/index.html" class="card">
+            <h3>13. Quantum Simulator</h3>
+            <p>Distributed Qubit Circuit Composer.</p>
+            <div class="tech"><span class="tag">Qubits</span><span class="tag">Math</span></div>
+        </a>
+        <a href="./03-Expert/14-Temporal-Web-Browser/index.html" class="card">
+            <h3>14. Temporal Browser</h3>
+            <p>Web surfing across historical eras.</p>
+            <div class="tech"><span class="tag">Engine</span><span class="tag">DOM</span></div>
+        </a>
+        <a href="./03-Expert/15-Quantum-Internet-Protocol/index.html" class="card">
+            <h3>15. Quantum Protocol Stack</h3>
+            <p>Layer 1-7 Quantum Networking.</p>
+            <div class="tech"><span class="tag">Network</span><span class="tag">Stack</span></div>
+        </a>
+        <a href="./03-Expert/16-Holographic-OS/index.html" class="card">
+            <h3>16. Holographic OS</h3>
+            <p>Glassmorphism Desktop Environment.</p>
+            <div class="tech"><span class="tag">OS</span><span class="tag">GUI</span></div>
+        </a>
+        <a href="./03-Expert/17-Quantum-AI-Platform/index.html" class="card">
+            <h3>17. Quantum AI Platform</h3>
+            <p>QNN Training Visualization.</p>
+            <div class="tech"><span class="tag">AI</span><span class="tag">Neural</span></div>
+        </a>
+        <a href="./03-Expert/18-Temporal-File-System/index.html" class="card">
+            <h3>18. Temporal FS</h3>
+            <p>Time-traveling File System.</p>
+            <div class="tech"><span class="tag">FS</span><span class="tag">Diff</span></div>
+        </a>
+    </div>
+</body>
+</html>

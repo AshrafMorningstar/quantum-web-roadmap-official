@@ -1,0 +1,91 @@
+/** Neuro-Adaptive Server - Styles | Author: Ashraf Morningstar */
+:root {
+    --bg: #ffffff;
+    --text: #333333;
+    --accent: #5e6ad2;
+    --font-size: 18px;
+    --line-height: 1.6;
+    --container-width: 800px;
+    --transition: 1s ease;
+}
+
+/* High Stress Mode Variables */
+body.high-stress {
+    --bg: #f0f4f8; /* Softer background */
+    --text: #000000; /* High contrast */
+    --accent: #2c3e50; /* Muted accent */
+    --font-size: 22px; /* Larger text */
+    --line-height: 2.0; /* More spacing */
+    --container-width: 600px; /* Narrower reading */
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Georgia', serif;
+    margin: 0;
+    transition: background var(--transition), color var(--transition);
+}
+
+.monitor-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.8);
+    color: #00ff00;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    z-index: 100;
+}
+
+.metric { margin-bottom: 5px; }
+
+.content-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    transition: max-width var(--transition), font-size var(--transition);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+h1 { color: var(--accent); transition: color var(--transition); }
+.subtitle { font-style: italic; color: #666; }
+
+/* In high stress, hide complex elements */
+body.high-stress .complex-data {
+    display: none;
+}
+
+body.high-stress .subtitle {
+    display: none; /* Reduce noise */
+}
+
+/* Graphics */
+.graphic-element {
+    position: relative;
+    height: 200px;
+    margin: 40px 0;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: opacity var(--transition);
+}
+body.high-stress .graphic-element { opacity: 0.5; }
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.2;
+}
+.c1 { width: 100px; height: 100px; top: 20px; left: 20px; }
+.c2 { width: 150px; height: 150px; bottom: -20px; right: 40px; }
+.c3 { width: 60px; height: 60px; top: 40%; left: 45%; }

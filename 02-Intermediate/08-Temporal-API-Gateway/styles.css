@@ -1,0 +1,117 @@
+/** Temporal API Gateway - Styles */
+:root {
+    --api-bg: #000000;
+    --api-green: #00ff41; 
+    --api-dim: #003b00;
+    --api-alert: #ff3333;
+}
+
+body {
+    background-color: var(--api-bg);
+    color: var(--api-green);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.api-console {
+    width: 900px;
+    border: 2px solid var(--api-green);
+    box-shadow: 0 0 20px var(--api-dim);
+    background: rgba(0, 10, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: var(--api-green);
+    color: var(--api-bg);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--api-green);
+}
+
+section {
+    padding: 20px;
+}
+
+.request-panel {
+    border-right: 2px solid var(--api-green);
+}
+
+h2 { margin-top: 0; border-bottom: 1px dashed var(--api-green); padding-bottom: 10px; font-size: 1.1rem; }
+
+.input-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 5px; opacity: 0.8; }
+select, input[type=date], input[type=time] {
+    width: 100%;
+    background: black;
+    color: var(--api-green);
+    border: 1px solid var(--api-green);
+    padding: 8px;
+    font-family: inherit;
+}
+input[type=range] { width: 100%; accent-color: var(--api-green); }
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: var(--api-green);
+    color: black;
+    border: none;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+button:hover { background: #ccffcc; }
+
+.response-panel pre {
+    background: rgba(0, 50, 0, 0.3);
+    padding: 10px;
+    border: 1px solid var(--api-dim);
+    height: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+.response-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.timeline-vis {
+    height: 150px;
+    background: #000500;
+    position: relative;
+    overflow: hidden;
+}
+
+canvas { width: 100%; height: 100%; }
+
+/* CRT Scanline */
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
