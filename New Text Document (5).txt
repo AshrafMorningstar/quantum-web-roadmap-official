@@ -1,3 +1,11 @@
+/*
+ Copyright (c) 2026 Ashraf Morningstar
+ These are personal recreations of existing projects, developed by Ashraf Morningstar
+ for learning and skill development.
+ Original project concepts remain the intellectual property of their respective creators.
+ Repository: https://github.com/AshrafMorningstar
+*/
+
 
 Make me a PDR in which there should be about web development projects from beginner to expert level and there should be 6 projects for each level like 6 projects for beginner, 6 projects for expert and you can make PDRs of other similar types of projects one by one but according to the sections like first beginner, after that environment, you can make PDRs of similar types of projects for me but every project should be unique and such that no one in the world has made it.
 Read 10 web pages
